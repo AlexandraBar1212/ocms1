@@ -3,6 +3,7 @@
 use Backend;
 use System\Classes\PluginBase;
 use Rainlab\User\Models\User;
+use Openlab\Arrivals\Classes\Extend\UserExtend;
 
 /**
  * arrivals Plugin Information File
@@ -41,9 +42,7 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        User::extend(function($model){
-            $model->hasMany['arrivals'] = ['Openlab/Arrivals/Models/Arrival'];
-        });
+        UserExtend::UserExtend();
     }
 
     /**

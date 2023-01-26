@@ -8,9 +8,13 @@ columns:
     id:
         label: ID
         searchable: true
-    firstname:
+    user[firstname]:
         label: First name
-    lastname:
+    user[lastname]:
         label: Last name
     email:
         label: Email
+    arrival:
+        type: datetime
+
+ 

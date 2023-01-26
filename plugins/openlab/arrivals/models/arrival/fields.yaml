@@ -1,0 +1,29 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    user_id:
+        label: User ID
+    id:
+        label: ID
+        disabled: true
+    firstname:
+        label: First name
+    lastname:
+        label: Last name
+    email:
+        label: Email
+ 
+    user:
+        label: Student
+        type: recordfinder
+        list: ~/plugins/rainlab/user/models/user/columns.yaml
+        recordsPerPage: 10
+        title: Find a student
+        prompt: Find a student
+        keyFrom: id
+        nameFrom: name
+        descriptionFrom: email
+        useRelation: true
+        modelClass: RainLab\User\Models\User

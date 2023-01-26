@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    user_id:
+        label: User ID
+    id:
+        label: ID
+        searchable: true
+    firstname:
+        label: First name
+    lastname:
+        label: Last name
+    email:
+        label: Email

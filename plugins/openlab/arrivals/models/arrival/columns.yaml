@@ -8,9 +8,9 @@ columns:
     id:
         label: ID
         searchable: true
-    user[firstname]:
+    firstname:
         label: First name
-    user[lastname]:
+    lastname:
         label: Last name
     email:
         label: Email

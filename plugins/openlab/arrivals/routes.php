@@ -14,7 +14,8 @@
         
         Route::middleware(['auth'])->group(function(){
             Route::post('arrivals/create', [ArrivalController::class, 'create']);  
-            // Route::post('arrivals/update/{id}', [ArrivalController::class, 'update']); 
+            Route::get('arrivals/myArrivals', [ArrivalController::class, 'myArrivals']);  
+
         });
     });
             

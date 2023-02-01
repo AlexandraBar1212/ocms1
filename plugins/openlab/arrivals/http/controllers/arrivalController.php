@@ -16,12 +16,12 @@ class ArrivalController{
         return ArrivalResource::collection(Arrival::all());
     }
     public function arrival($id){
-        return ArrivalResource::colection(Arrival::find($id));
+        return ArrivalResource::collection(Arrival::find($id));
     }
     public function delete($id){
-        $arrival = Arrival::find($id);
+        $arrival = Arrival::findOrFail($id);
         $arrival->delete();
-        return ArrivalResource::colection(Arrival::find($id));
+        return ArrivalResource::make($arrival);
     }
     public function create(){
         $arrival = new Arrival;
@@ -33,19 +33,8 @@ class ArrivalController{
 
         return ArrivalResource::make($arrival);
     }
-   
-    // public function update() {
-
-
-    //     $arrival = Arrival::where('id', $arrival_id)
-    //     ->firstOrFail();
-    //     $arrival->firstname = auth()->user()->name;
-    //     $arrival->lastname = auth()->user()->surname;
-    //     $arrival->arrival = Carbon::create(now());
-    //     $arrival->save();
-
-    //     Event::fire('arrivals.created', $arrival);
-
-    //     return ArrivalResource::collection(Arrival::where('user_id', auth()->user()->id)->get());
-    // }
+   public function myArrivals(){
+        Arrival::where('id', $id );
+        
+   }   
 }

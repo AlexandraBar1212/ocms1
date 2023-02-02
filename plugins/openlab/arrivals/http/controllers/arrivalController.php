@@ -10,13 +10,13 @@ use Illuminate\Routing\Controller;
 use Event;
 
 
-class ArrivalController{
+class ArrivalController extends Controller{
     
     public function arrivals(){
         return ArrivalResource::collection(Arrival::all());
     }
-    public function arrival($id){
-        return ArrivalResource::collection(Arrival::find($id));
+    public function arrival($id) {
+        return ArrivalResource::make(Arrival::findOrFail($id));
     }
     public function delete($id){
         $arrival = Arrival::findOrFail($id);
@@ -33,8 +33,13 @@ class ArrivalController{
 
         return ArrivalResource::make($arrival);
     }
-   public function myArrivals(){
-        Arrival::where('id', $id );
-        
+    public function myArrivals(){
+        $arrival->email = auth()->user()->email;
+        $arrival = Arrival::findOrFail('email');
+
+        $token = request()->bearerToken();
+        return ArrivalResource::make(Arrival::findOrFail($token));
+
+
    }   
 }

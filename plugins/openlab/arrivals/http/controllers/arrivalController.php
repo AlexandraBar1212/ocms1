@@ -34,12 +34,14 @@ class ArrivalController extends Controller{
         return ArrivalResource::make($arrival);
     }
     public function myArrivals(){
-        $arrival->email = auth()->user()->email;
-        $arrival = Arrival::findOrFail('email');
+        Arrival::where('email', auth()->user()->email);
+        Event::fire('requestArrivals');
+        return ArrivalResource::collection(Arrival::where('email', auth()->user()->email));
+        // $arrival->email = auth()->user()->email;
+        // $arrival = Arrival::findOrFail('email');
 
-        $token = request()->bearerToken();
-        return ArrivalResource::make(Arrival::findOrFail($token));
-
-
+        // $token = request()->bearerToken();
+        // return ArrivalResource::make(Arrival::findOrFail($token));
+        
    }   
 }

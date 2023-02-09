@@ -34,7 +34,7 @@ class ArrivalController extends Controller{
         return ArrivalResource::make($arrival);
     }
     public function myArrivals(){
-        $arrivals = Arrival::where('user_id', auth()->user()->id)->get();
+        $arrivals = Arrival::where('user_id', auth()->user()->id);
         Event::fire('requestArrivals',[$arrivals]);
         return ArrivalResource::collection($arrivals);    
    }   
